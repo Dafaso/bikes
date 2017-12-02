@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Shops</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Website</th>
+      <th>Street1</th>
+      <th>Street2</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Phone</th>
+      <th>Zip</th>
+      <th>Email</th>
+      <th>Contact name</th>
+      <th>Contact email</th>
+      <th>Contact phone</th>
+      <th>Description</th>
+      <th>Notes</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shops.each do |shop| %>
+      <tr>
+        <td><%= shop.name %></td>
+        <td><%= shop.location %></td>
+        <td><%= shop.website %></td>
+        <td><%= shop.street1 %></td>
+        <td><%= shop.street2 %></td>
+        <td><%= shop.city %></td>
+        <td><%= shop.state %></td>
+        <td><%= shop.phone %></td>
+        <td><%= shop.zip %></td>
+        <td><%= shop.email %></td>
+        <td><%= shop.contact_name %></td>
+        <td><%= shop.contact_email %></td>
+        <td><%= shop.contact_phone %></td>
+        <td><%= shop.description %></td>
+        <td><%= shop.notes %></td>
+        <td><%= link_to 'Show', shop %></td>
+        <td><%= link_to 'Edit', edit_shop_path(shop) %></td>
+        <td><%= link_to 'Destroy', shop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Shop', new_shop_path %>

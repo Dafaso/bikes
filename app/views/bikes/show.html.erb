@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Shop:</strong>
+  <%= @bike.shop_id %>
+</p>
+
+<p>
+  <strong>Manufacturer:</strong>
+  <%= @bike.manufacturer_id %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @bike.type %>
+</p>
+
+<%= link_to 'Edit', edit_bike_path(@bike) %> |
+<%= link_to 'Back', bikes_path %>
