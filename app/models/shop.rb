@@ -5,6 +5,6 @@ class Shop < ApplicationRecord
   attr_accessor :manufacturer
 
 
-  validates_presence_of :name, :location, :street1, :city, :state, :zip
+  validates_presence_of :name, :location, :street1, :city, :state
 
 end
