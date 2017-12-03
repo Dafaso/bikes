@@ -6,9 +6,9 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Website</th>
       <th>Location</th>
       <th>Country</th>
-      <th>Website</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,9 +17,9 @@
     <% @manufacturers.each do |manufacturer| %>
       <tr>
         <td><%= manufacturer.name %></td>
+        <td><%= link_to manufacturer.website, manufacturer.website, target:"blank" %></td>
         <td><%= manufacturer.location %></td>
         <td><%= manufacturer.country %></td>
-        <td><%= link_to manufacturer.website, manufacturer.website, target:"blank" %></td>
         <td><%= link_to 'Show', manufacturer %></td>
         <td><%= link_to 'Edit', edit_manufacturer_path(manufacturer) %></td>
         <td><%= link_to 'Destroy', manufacturer, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -43,7 +43,7 @@ class ShopsController < ApplicationController
           Bike.create(shop_id: @shop.id, manufacturer_id: man.id)
         end
 
-        format.html { redirect_to @shop, notice: 'Shop was successfully created.' }
+        format.html { redirect_to '/shops/new', notice: "#{@shop.name} added." }
         format.json { render :show, status: :created, location: @shop }
       else
         format.html { render :new }

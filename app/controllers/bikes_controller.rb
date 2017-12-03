@@ -28,7 +28,7 @@ class BikesController < ApplicationController
 
     respond_to do |format|
       if @bike.save
-        format.html { redirect_to @bike, notice: 'Bike was successfully created.' }
+        format.html { redirect_to '/bikes/new', notice: "#{@bike.name} added." }
         format.json { render :show, status: :created, location: @bike }
       else
         format.html { render :new }

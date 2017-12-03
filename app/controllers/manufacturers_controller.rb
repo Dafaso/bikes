@@ -28,7 +28,12 @@ class ManufacturersController < ApplicationController
 
     respond_to do |format|
       if @manufacturer.save
-        format.html { redirect_to @manufacturer, notice: 'Manufacturer was successfully created.' }
+
+        if params[:manufacturer][:location] == "Domestic"
+          @manufacturer.update_attribute(:country, "USA");
+        end
+
+        format.html { redirect_to '/manufacturers/new', notice: "#{params[:manufacturer][:name]} added." }
         format.json { render :show, status: :created, location: @manufacturer }
       else
         format.html { render :new }
