@@ -86,6 +86,15 @@
     <%= f.text_area :notes %>
   </div>
 
+  <span><b>Choose manufacturers for this shop:</b></span>
+  <br><br>
+  <% @manufacturers.each do |m| %>
+    <div class="field">
+      <%= check_box_tag 'shop[manufacturer][]', m.name, @shop.manufacturers.include?(m) %>
+      <span><%= m.name %></span>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

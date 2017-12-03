@@ -9,6 +9,12 @@
   </head>
 
   <body>
+    <nav>
+      <ul class="main_menu">
+        <li><%= link_to "Home", new_shop_path %></li>
+        <li><%= link_to "Manufacturers", manufacturers_path %></li>
+      </ul>  
+    </nav>
     <%= yield %>
   </body>
 </html>

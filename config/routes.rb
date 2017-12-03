@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: "shops#new"
+
   resources :bikes
   resources :manufacturers
   resources :shops

@@ -12,22 +12,27 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %>
+    <b><%= f.label :name %></b>
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :location %>
-    <%= f.text_field :location %>
+    <b><%= f.label :location %></b>
+    <%= f.radio_button :location, 'Domestic', :checked => true %>
+    <span class="button_label">Domestic</span>
+  </div>
+  <div class="field">
+    <%= f.radio_button :location, 'Foreign' %>
+    <span class="button_label">Foreign</span>
   </div>
 
   <div class="field">
-    <%= f.label :country %>
+    <b><%= f.label :country %></b>
     <%= f.text_field :country %>
   </div>
 
   <div class="field">
-    <%= f.label :website %>
+    <b><%= f.label :website %></b>
     <%= f.text_field :website %>
   </div>
 

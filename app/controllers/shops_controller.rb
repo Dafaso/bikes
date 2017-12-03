@@ -10,15 +10,19 @@ class ShopsController < ApplicationController
   # GET /shops/1
   # GET /shops/1.json
   def show
+    bikes = Bike.where( 'shop_id = ?', @shop.id )
+    @manufacturers = bikes.map{ |b| Manufacturer.find(b.manufacturer_id) }
   end
 
   # GET /shops/new
   def new
     @shop = Shop.new
+    @manufacturers = Manufacturer.all
   end
 
   # GET /shops/1/edit
   def edit
+    @manufacturers = Manufacturer.all
   end
 
   # POST /shops
@@ -28,6 +32,14 @@ class ShopsController < ApplicationController
 
     respond_to do |format|
       if @shop.save
+
+        @manufacturers = Manufacturer.all
+
+        params[:shop][:manufacturer].each do |m|
+          man = @manufacturers.find{ |mm|mm.name == m }
+          Bike.create(shop_id: @shop.id, manufacturer_id: man.id)
+        end
+
         format.html { redirect_to @shop, notice: 'Shop was successfully created.' }
         format.json { render :show, status: :created, location: @shop }
       else
@@ -42,6 +54,26 @@ class ShopsController < ApplicationController
   def update
     respond_to do |format|
       if @shop.update(shop_params)
+
+      @manufacturers = Manufacturer.all
+      @bikes = Bike.where( 'shop_id = ?', @shop.id )
+
+      @bikes.each do |b|
+        params[:shop][:manufacturer] ||= []
+        unless params[:shop][:manufacturer].include?(b.shop.name)
+          b.destroy
+        end
+      end
+
+      params[:shop][:manufacturer].each do |m|
+        man = @manufacturers.find{ |mm|mm.name == m }
+        b = @bikes.select{ |bike| bike.shop_id == @shop_id && bike.manufacturer.name == man.id }
+
+        if b.empty?
+          Bike.create(shop_id: @shop.id, manufacturer_id: man.id)
+        end
+      end
+
         format.html { redirect_to @shop, notice: 'Shop was successfully updated.' }
         format.json { render :show, status: :ok, location: @shop }
       else
@@ -69,6 +101,6 @@ class ShopsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shop_params
-      params.require(:shop).permit(:name, :location, :website, :street1, :street2, :city, :state, :phone, :zip, :email, :contact_name, :contact_email, :contact_phone, :description, :notes)
+      params.require(:shop).permit(:name, :location, :website, :street1, :street2, :city, :state, :phone, :zip, :email, :contact_name, :contact_email, :contact_phone, :description, :notes, :manufacturer)
     end
 end
