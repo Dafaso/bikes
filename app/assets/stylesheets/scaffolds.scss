@@ -1,16 +1,39 @@
+*, *:before, *:after {
+   box-sizing: border-box;
+ }
+
+ html,label,figure,figcaption,p,h1,h2,h3,h4,h5,span,li,ol,ul,table,tr,td,thead,nav,body,input{
+   margin: 0;
+   padding: 0;
+ }
+
+ h1, h2, h3, h4 {
+   padding: 20px 0;
+ }
+
 body {
+  box-sizing: border-box;
+  max-width: 100%;
   background-color: #fff;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
-  margin: 33px;
+  padding: 33px;
 }
 
-p, ol, ul, td {
+ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 18px;
+  margin: 0px;
+  padding: 0;
+}
+
+p {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 30px;
   margin: 0px;
   padding: 0;
 }
@@ -89,7 +112,7 @@ input[type="submit"]{
 }
 
 #error_explanation {
-  width: 450px;
+  width: 250px;
   border: 2px solid red;
   padding: 7px;
   padding-bottom: 0;

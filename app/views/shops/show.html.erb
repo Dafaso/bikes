@@ -75,12 +75,12 @@
   <%= @shop.notes %>
 </p>
 
-<span>Manufacturers: </span>
+<span><h4><b>Manufacturers: </b></h4></span>
 <ul>
 <% @manufacturers.each do |m| %>
-  <li><%= m.name %></li>
+  <li><p><%= m.name %></p></li>
 <% end %>
 </ul>
-
+<br>
 <%= link_to 'Edit', edit_shop_path(@shop) %> |
 <%= link_to 'Back', shops_path %>
