@@ -13,3 +13,21 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+
+$(document).ready(function(){
+
+  if($('.dom_but').prop("checked", true)){
+    $('#country_text_field').attr('disabled', 'true');
+  }
+
+  $('.domestic_radio_button').change(function(){
+    if($('.dom_but').is(":checked")){
+      $('#country_text_field').val("");
+      $('#country_text_field').attr('disabled', 'disabled');
+    }else{
+      $('#country_text_field').removeAttr('disabled');
+    }
+  });
+
+});

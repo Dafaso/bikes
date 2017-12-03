@@ -18,17 +18,18 @@
 
   <div class="field">
     <b><%= f.label :location %></b>
-    <%= f.radio_button :location, 'Domestic', :checked => true %>
-    <span class="button_label">Domestic</span>
+    <%= f.radio_button :location, 'Domestic', class:"domestic_radio_button dom_but" %>
+    <span>Domestic</span>
   </div>
+
   <div class="field">
-    <%= f.radio_button :location, 'Foreign' %>
-    <span class="button_label">Foreign</span>
+    <%= f.radio_button :location, 'Foreign', class:"domestic_radio_button" %>
+    <span>Foreign</span>
   </div>
 
   <div class="field">
     <b><%= f.label :country %></b>
-    <%= f.text_field :country %>
+    <%= f.text_field :country, id:"country_text_field" %>
   </div>
 
   <div class="field">
@@ -37,6 +38,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class:"mdl-button mdl-js-button mdl-button--raised mdl-button--colored" %>
   </div>
 <% end %>

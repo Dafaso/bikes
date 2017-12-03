@@ -30,6 +30,9 @@ class ShopsController < ApplicationController
   def create
     @shop = Shop.new(shop_params)
 
+    # in case of form error:
+    @manufacturers = Manufacturer.all
+
     respond_to do |format|
       if @shop.save
 

@@ -3,4 +3,8 @@ class Shop < ApplicationRecord
   has_many :manufacturers, through: :bikes
 
   attr_accessor :manufacturer
+
+
+  validates_presence_of :name, :location, :street1, :city, :state, :zip
+
 end
