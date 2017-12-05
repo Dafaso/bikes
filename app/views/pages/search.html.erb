@@ -12,9 +12,9 @@
 
     <br><br>
     <span><%= radio_button_tag "match", "Any", (params[:match].present? && params[:match] == "Any") || (params[:match].present? == false) %></span>
-    <span><%= label_tag "match", "Any" %></span>
+    <span><%= label_tag "match_Any", "Any" %></span>
     <span><%= radio_button_tag "match", "All", (params[:match].present? && params[:match] == "All") %></span>
-    <span><%= label_tag "match", "All" %></span>
+    <span><%= label_tag "match_All", "All" %></span>
     <br><br>
     <%= submit_tag "Search" %>
   <% end %>
