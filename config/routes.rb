@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+
   root to: "shops#new"
+
+  get 'search' => 'pages#search', as: :search
 
   resources :bikes
   resources :manufacturers

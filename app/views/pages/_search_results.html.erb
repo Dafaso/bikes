@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <td>Name</td>
+    <td>Website</td>
+    <td>Phone</td>
+    <td>Email</td>
+    <td>Contact Name</td>
+  </thead>
+  <% @shops.each do |shop| %>
+    <tr>
+      <td><%= link_to shop.name, shop_path(shop) %></td>
+      <td><%= link_to "Website", shop.website, target:"blank" %>
+      <td><%= shop.phone %></td>
+      <td><%= shop.email %></td>
+      <td><%= shop.contact_name %></td>
+    </tr>
+  <% end %>
+</table>

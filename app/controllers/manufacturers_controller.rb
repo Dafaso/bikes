@@ -4,7 +4,7 @@ class ManufacturersController < ApplicationController
   # GET /manufacturers
   # GET /manufacturers.json
   def index
-    @manufacturers = Manufacturer.all
+    @manufacturers = Manufacturer.all.order(:name)
   end
 
   # GET /manufacturers/1
@@ -47,6 +47,11 @@ class ManufacturersController < ApplicationController
   def update
     respond_to do |format|
       if @manufacturer.update(manufacturer_params)
+
+        if params[:manufacturer][:location] == "Domestic"
+          @manufacturer.update_attribute(:country, "USA");
+        end
+        
         format.html { redirect_to @manufacturer, notice: 'Manufacturer was successfully updated.' }
         format.json { render :show, status: :ok, location: @manufacturer }
       else

@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<%= form_for(manufacturer) do |f| %>
+  <% if manufacturer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(manufacturer.errors.count, "error") %> prohibited this manufacturer from being saved:</h2>
+
+      <ul>
+      <% manufacturer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <b><%= f.label :name %></b>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <b><%= f.label :location %></b>
+    <%= f.radio_button :location, 'Domestic', :checked => (manufacturer.location == 'Domestic') ? true : false, class:"domestic_edit_button dom_edit" %>
+    <span>Domestic</span>
+  </div>
+
+  <div class="field">
+    <%= f.radio_button :location, 'Foreign', :checked => (manufacturer.location == 'Foreign') ? true : false, class:"domestic_edit_button" %>
+    <span>Foreign</span>
+  </div>
+
+  <div class="field">
+    <b><%= f.label :country %></b>
+    <%= f.text_field :country, id:"country_edit_field" %>
+  </div>
+
+  <div class="field">
+    <b><%= f.label :website %></b>
+    <%= f.text_field :website %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit class:"mdl-button mdl-js-button mdl-button--raised mdl-button--colored" %>
+  </div>
+<% end %>

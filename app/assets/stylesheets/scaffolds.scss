@@ -24,10 +24,6 @@ body {
 
 ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 14px;
-  line-height: 18px;
-  margin: 0px;
-  padding: 0;
 }
 
 p {
@@ -67,15 +63,7 @@ a {
   }
 }
 
-th {
-  padding-bottom: 5px;
-}
 
-td {
-  padding-bottom: 7px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
 
 div {
   &.field, &.actions {

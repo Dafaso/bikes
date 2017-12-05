@@ -4,7 +4,7 @@ class ShopsController < ApplicationController
   # GET /shops
   # GET /shops.json
   def index
-    @shops = Shop.all
+    @shops = Shop.all.sort_by{|sh| sh.name.downcase}
   end
 
   # GET /shops/1

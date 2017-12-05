@@ -22,13 +22,13 @@ $(document).ready(function(){
     $('#country_text_field').attr('disabled', 'true');
   }
 
-  $('.domestic_radio_button').change(function(){
-    if($('.dom_but').is(":checked")){
-      $('#country_text_field').val("USA");
-      $('#country_text_field').attr('disabled', 'disabled');
+  $('.domestic_radio_button, .domestic_edit_button').change(function(){
+    if($('.dom_but, .dom_edit').is(":checked")){
+      $('#country_text_field, #country_edit_field').val("USA");
+      $('#country_text_field, #country_edit_field').attr('disabled', 'disabled');
     }else{
-      $('#country_text_field').val("");
-      $('#country_text_field').removeAttr('disabled');
+      $('#country_text_field, #country_edit_field').val("");
+      $('#country_text_field, #country_edit_field').removeAttr('disabled');
     }
   });
 

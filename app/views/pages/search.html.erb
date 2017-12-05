@@ -1,0 +1,26 @@
+
+<br><br>
+<div id="search_form">
+  <%= form_tag search_path, method: :get, remote: true do %>
+
+      <% @manufacturers.each do |m| %>
+        <div id="check_option">
+          <%= check_box_tag 'manufacturer[]', m.name, params[:manufacturer].present? ? params[:manufacturer].include?(m) : false, id: m.name.split.join("_") %>
+          <%= label_tag m.name, m.name %>
+        </div>
+      <% end %>
+
+    <br><br>
+    <span><%= radio_button_tag "match", "Any", (params[:match].present? && params[:match] == "Any") || (params[:match].present? == false) %></span>
+    <span><%= label_tag "match", "Any" %></span>
+    <span><%= radio_button_tag "match", "All", (params[:match].present? && params[:match] == "All") %></span>
+    <span><%= label_tag "match", "All" %></span>
+    <br><br>
+    <%= submit_tag "Search" %>
+  <% end %>
+</div>
+
+<br><br>
+
+<div id="search_results">
+</div>
