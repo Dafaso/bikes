@@ -90,7 +90,7 @@
 
   <span><b>Choose manufacturers for this shop:</b></span>
   <br><br>
-  <% @manufacturers.each do |m| %>
+  <% @manufacturers.sort_by{|m|m.name.downcase}.each do |m| %>
     <div class="field">
       <%= check_box_tag 'shop[manufacturer][]', m.name, @shop.manufacturers.include?(m) %>
       <span><%= m.name %></span>

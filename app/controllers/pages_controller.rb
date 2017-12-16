@@ -5,7 +5,7 @@ class PagesController < ApplicationController
 
     if params[:commit] && params[:commit]=="Search" && params[:manufacturer].present?
 
-      @shops = Shop.all
+      @shops = Shop.all.sort_by{|s|s.name.downcase}
 
       if params[:match] == "All"
         @shops = @shops.select do |s|
